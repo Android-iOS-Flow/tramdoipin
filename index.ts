@@ -12,6 +12,9 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 app.use('/api/stations', stationRouter);
+app.use('/', (req, res) => {
+    res.send('Hello World');
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
