@@ -1,11 +1,5 @@
 import winston from 'winston';
 import { WinstonTransport as AxiomTransport } from '@axiomhq/winston';
-import fs from 'fs';
-
-const logDir = 'logs';
-if (!fs.existsSync(logDir)) {
-    fs.mkdirSync(logDir);
-}
 
 const telegramLogger = winston.createLogger({
     level: 'info',
