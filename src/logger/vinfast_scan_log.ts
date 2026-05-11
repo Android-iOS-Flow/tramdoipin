@@ -1,11 +1,5 @@
 import winston from 'winston';
-import fs from 'fs';
 import { WinstonTransport as AxiomTransport } from '@axiomhq/winston';
-
-const logDir = 'logs';
-if (!fs.existsSync(logDir)) {
-    fs.mkdirSync(logDir);
-}
 
 const vinfastScanLogger = winston.createLogger({
     level: 'info',
