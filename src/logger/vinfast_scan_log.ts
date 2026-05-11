@@ -1,6 +1,6 @@
 import winston from 'winston';
-import DailyRotateFile from 'winston-daily-rotate-file';
 import fs from 'fs';
+import { WinstonTransport as AxiomTransport } from '@axiomhq/winston';
 
 const logDir = 'logs';
 if (!fs.existsSync(logDir)) {
@@ -12,12 +12,9 @@ const vinfastScanLogger = winston.createLogger({
     format: winston.format.json(),
     transports: [
         // new winston.transports.Console(),
-        new DailyRotateFile({
-            filename: `${logDir}/vinfast_scan-%DATE%.log`,
-            datePattern: 'YYYY-MM-DD',
-            zippedArchive: true,
-            maxSize: '20m',
-            maxFiles: '14d',
+        new AxiomTransport({
+            dataset: 'vinfast_scan',
+            token: process.env.AXIOM_TOKEN || '',
         }),
     ],
 });

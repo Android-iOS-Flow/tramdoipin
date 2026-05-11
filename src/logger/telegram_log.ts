@@ -1,5 +1,5 @@
 import winston from 'winston';
-import DailyRotateFile from 'winston-daily-rotate-file';
+import { WinstonTransport as AxiomTransport } from '@axiomhq/winston';
 import fs from 'fs';
 
 const logDir = 'logs';
@@ -12,12 +12,9 @@ const telegramLogger = winston.createLogger({
     format: winston.format.json(),
     transports: [
         new winston.transports.Console(),
-        new DailyRotateFile({
-            filename: `${logDir}/telegram-%DATE%.log`,
-            datePattern: 'YYYY-MM-DD',
-            zippedArchive: true,
-            maxSize: '20m',
-            maxFiles: '14d',
+        new AxiomTransport({
+            dataset: 'telegram',
+            token: process.env.AXIOM_TOKEN || '',
         }),
     ],
 });
