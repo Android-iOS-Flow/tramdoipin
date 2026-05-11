@@ -1,7 +1,6 @@
 import 'dotenv/config'; 
 import connectDB from './src/config/db.js';
 import express from 'express';
-import path from 'path';
 import stationRouter from './src/routes/stations.js';
 // 1. Kết nối Database
 connectDB();

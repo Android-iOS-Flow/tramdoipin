@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/bot.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@axiomhq/winston": "^1.6.1",
