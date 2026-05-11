@@ -1,5 +1,9 @@
 {
   "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/bot.js"
+  },
   "dependencies": {
     "@axiomhq/winston": "^1.6.1",
     "axios": "^1.16.0",
